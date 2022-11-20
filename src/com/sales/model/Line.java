@@ -55,7 +55,7 @@ public class Line {
         return invoice;
     }
     
-    public String getAsCSV() {
+    public String getAsFile() {
         return invoice.getNum() + "," + item + "," + price + "," + count;
     }
     
