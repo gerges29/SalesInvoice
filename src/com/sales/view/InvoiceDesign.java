@@ -6,8 +6,8 @@
 package com.sales.view;
 
 import com.sales.controller.Controller;
-import com.sales.model.Invoice;
-import com.sales.model.InvoicesTableModel;
+import com.sales.model.InvoiceTable;
+import com.sales.model.ShowInvTableModel;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -16,12 +16,12 @@ import javax.swing.JTable;
  *
  * @author DELL
  */
-public class InvoiceFrame extends javax.swing.JFrame {
+public class InvoiceDesign extends javax.swing.JFrame {
 
     /**
      * Creates new form InvoiceFrame
      */
-    public InvoiceFrame() {
+    public InvoiceDesign() {
         initComponents();
     }
 
@@ -48,7 +48,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         customerNameLabel = new javax.swing.JLabel();
         invoiceDateLabel = new javax.swing.JLabel();
-        invoiceNumLabel = new javax.swing.JLabel();
+        invoiceNumberLabel = new javax.swing.JLabel();
         invoiceTotalLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lineTable = new javax.swing.JTable();
@@ -75,9 +75,9 @@ public class InvoiceFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(invoiceTable);
 
-        createInvoiceButton.setText("Create New Invoice");
+        createInvoiceButton.setText("Create Invoice");
 
-        deleteInvoiceButton.setText("Delete Invoice");
+        deleteInvoiceButton.setText("Remove Invoice");
 
         jLabel1.setText("Inoice Number");
 
@@ -97,13 +97,13 @@ public class InvoiceFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(lineTable);
 
-        createLineButton.setText("Create New Item");
+        createLineButton.setText("Create Item");
 
-        deleteLineButton.setText("Delete Item");
+        deleteLineButton.setText("Remove Item");
 
         jMenu1.setText("File");
 
-        loadFileMenuItem.setText("Load File");
+        loadFileMenuItem.setText("Open File");
         jMenu1.add(loadFileMenuItem);
 
         saveFileMenuItem.setText("Save File");
@@ -139,7 +139,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(invoiceNumLabel))
+                                    .addComponent(invoiceNumberLabel))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,7 +165,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(invoiceNumLabel))
+                            .addComponent(invoiceNumberLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -211,20 +211,21 @@ public class InvoiceFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InvoiceFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvoiceDesign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InvoiceFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvoiceDesign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InvoiceFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvoiceDesign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InvoiceFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvoiceDesign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InvoiceFrame().setVisible(true);
+                new InvoiceDesign().setVisible(true);
             }
         });
     }
@@ -236,7 +237,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteInvoiceButton;
     private javax.swing.JButton deleteLineButton;
     private javax.swing.JLabel invoiceDateLabel;
-    private javax.swing.JLabel invoiceNumLabel;
+    private javax.swing.JLabel invoiceNumberLabel;
     private javax.swing.JTable invoiceTable;
     private javax.swing.JLabel invoiceTotalLabel;
     private javax.swing.JLabel jLabel1;
@@ -251,31 +252,32 @@ public class InvoiceFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem loadFileMenuItem;
     private javax.swing.JMenuItem saveFileMenuItem;
     // End of variables declaration//GEN-END:variables
-    private ArrayList<Invoice> invoices;
+    private ArrayList<InvoiceTable> invoices;
     private Controller controller = new Controller(this);
-    private InvoicesTableModel invoicesTableModel;
+    private ShowInvTableModel showInvTableModel;
 
-    public ArrayList<Invoice> getInvoices() {
+    public ArrayList<InvoiceTable> getInvoices() {
         if (invoices == null) invoices = new ArrayList<>();
         return invoices;
     }
 
-    public void setInvoices(ArrayList<Invoice> invoices) {
+    
+    public void setInvoices(ArrayList<InvoiceTable> invoices) {
         this.invoices = invoices;
     }
 
-    public InvoicesTableModel getInvoicesTableModel() {
-        if (invoicesTableModel == null) {
-            invoicesTableModel = new InvoicesTableModel(getInvoices());
+    public ShowInvTableModel getInvoicesTableModel() {
+        if (showInvTableModel == null) {
+            showInvTableModel = new ShowInvTableModel(getInvoices());
         }
-        return invoicesTableModel;
+        return showInvTableModel;
     }
 
-    public void setInvoicesTableModel(InvoicesTableModel invoicesTableModel) {
-        this.invoicesTableModel = invoicesTableModel;
+    public void setInvoicesTableModel(ShowInvTableModel showInvTableModel) {
+        this.showInvTableModel = showInvTableModel;
     }
 
-    public JLabel getCustomerNameLabel() {
+    public JLabel getCustNameLbl() {
         return customerNameLabel;
     }
 
@@ -283,8 +285,8 @@ public class InvoiceFrame extends javax.swing.JFrame {
         return invoiceDateLabel;
     }
 
-    public JLabel getInvoiceNumLabel() {
-        return invoiceNumLabel;
+    public JLabel getInvoiceNumberLabel() {
+        return invoiceNumberLabel;
     }
 
     public JTable getInvoiceTable() {
@@ -303,15 +305,15 @@ public class InvoiceFrame extends javax.swing.JFrame {
         return controller;
     }
     
-    public int getNextInvoiceNum(){
-        int num = 0;
+    public int getNextInvoiceNumber(){
+        int number = 0;
         
-        for (Invoice invoice : getInvoices()){
-            if (invoice.getNum() > num) 
-                num = invoice.getNum();
+        for (InvoiceTable invoice : getInvoices()){
+            if (invoice.getNumber() > number) 
+                number = invoice.getNumber();
         }
         
-        return ++num;
+        return ++number;
     }
     
     

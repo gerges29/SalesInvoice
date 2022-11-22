@@ -11,7 +11,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="loadFileMenuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Load File"/>
+                <Property name="text" type="java.lang.String" value="Open File"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadFileMenuItem.addActionListener(controller);&#xd;&#xa;"/>
@@ -79,7 +79,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="invoiceNumLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="invoiceNumberLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="invoiceNumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="invoiceNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -173,7 +173,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="createInvoiceButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create New Invoice"/>
+        <Property name="text" type="java.lang.String" value="Create Invoice"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="createInvoiceButton.addActionListener(controller);&#xd;&#xa;"/>
@@ -181,7 +181,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteInvoiceButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Invoice"/>
+        <Property name="text" type="java.lang.String" value="Remove Invoice"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteInvoiceButton.addActionListener(controller);&#xd;&#xa;"/>
@@ -211,7 +211,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="invoiceDateLabel">
     </Component>
-    <Component class="javax.swing.JLabel" name="invoiceNumLabel">
+    <Component class="javax.swing.JLabel" name="invoiceNumberLabel">
     </Component>
     <Component class="javax.swing.JLabel" name="invoiceTotalLabel">
     </Component>
@@ -233,7 +233,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="createLineButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create New Item"/>
+        <Property name="text" type="java.lang.String" value="Create Item"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="createLineButton.addActionListener(controller);"/>
@@ -241,7 +241,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteLineButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Item"/>
+        <Property name="text" type="java.lang.String" value="Remove Item"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteLineButton.addActionListener(controller);"/>

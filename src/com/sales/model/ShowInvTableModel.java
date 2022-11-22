@@ -4,18 +4,18 @@ package com.sales.model;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-public class InvoicesTableModel extends AbstractTableModel{
-    private ArrayList<Invoice> invoices;
-    private String[] columns = {"NO.", "Date", "Customer", "Total"};
+public class ShowInvTableModel extends AbstractTableModel{
+    private ArrayList<InvoiceTable> inv;
+    private String[] columns = {"Number", "Date", "Name", "Invoice Total"};
 
-    public InvoicesTableModel(ArrayList<Invoice> invoices) {
-        this.invoices = invoices;
+    public ShowInvTableModel(ArrayList<InvoiceTable> inv) {
+        this.inv = inv;
     }
     
 
     @Override
     public int getRowCount() {
-            return invoices.size();
+            return inv.size();
     }
 
     @Override
@@ -29,16 +29,16 @@ public class InvoicesTableModel extends AbstractTableModel{
     }
 
     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        Invoice invoice = invoices.get(rowIndex);
+    public Object getValueAt(int row, int column) {
+        InvoiceTable invoice = inv.get(row);
         
-        switch (columnIndex){
+        switch (column){
             case 0:
-                return invoice.getNum();
+                return invoice.getNumber();
             case 1:
                 return invoice.getDate();
             case 2:
-                return invoice.getCustomer();
+                return invoice.getName();
             case 3:
                 return invoice.getInvoiceTotal();
             default:
